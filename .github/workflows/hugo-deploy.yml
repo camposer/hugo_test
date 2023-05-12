@@ -20,8 +20,14 @@ jobs:
           # Install hugo
           wget https://github.com/gohugoio/hugo/releases/download/v0.111.3/hugo_0.111.3_linux-amd64.tar.gz
           tar xfz hugo_0.111.3_linux-amd64.tar.gz
+
           # Build
           ./hugo --minify
+          
+          # Configure GH
+          git config --global user.name "ci"
+          git config --global user.email "ci@example.com"
+          
           # Push content
           git add --force public
           git commit -m "New version xxx"
