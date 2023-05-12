@@ -26,12 +26,14 @@ jobs:
           git config --global user.name "ci"
           git config --global user.email "ci@example.com"
           
-          # Preparing content to push
+          # Prepare content to push
           ./hugo
-          find . -depth 1 -not -name 'public' -exec rm -rf '{}' ';'
+          # find . -depth 1 -not -name "public" -exec rm -rf '{}' ';'
+          ls | while read line; do [ "$line" != "public" ] && rm -rf "$line"; done
           
           # Push content
           git add .
           git add --force public
           git commit -m "New version xxx"
+          # Do we want to use a force push here? Yikes!!!
           git push origin main:public
