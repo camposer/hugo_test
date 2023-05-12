@@ -18,10 +18,10 @@ jobs:
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
       - run: |
           # Install hugo
-          wget https://github.com/gohugoio/hugo/releases/download/v0.111.3/hugo_extended_0.111.3_linux-amd64.deb
-          dpkg -i hugo_extended_0.111.3_linux-amd64.deb
+          wget https://github.com/gohugoio/hugo/releases/download/v0.111.3/hugo_0.111.3_linux-amd64.tar.gz
+          tar xfz hugo_0.111.3_linux-amd64.tar.gz
           # Build
-          hugo --minify
+          ./hugo --minify
           # Push content
           git add public
           git commit
