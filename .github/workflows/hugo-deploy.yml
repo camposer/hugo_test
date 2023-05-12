@@ -28,7 +28,7 @@ jobs:
           
           # Prepare content to push
           ./hugo
-          ls -a | tail -n +3 | while read line; do [ "$line" != "public" ] && rm -rf "$line"; done
+          ls -a | tail -n +3 | while read line; do [ "$line" != "public" || "$line" != ".git" ] && rm -rf "$line"; done
           # Not working on docker
           # find . -depth 1 -not -name "public" -exec rm -rf '{}' ';'
           
