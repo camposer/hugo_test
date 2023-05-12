@@ -37,4 +37,4 @@ jobs:
           git add --force public
           git commit -m "New version xxx"
           # Do we want to use a force push here? Yikes!!!
-          git push origin main:public
+          git push --force origin main:public
